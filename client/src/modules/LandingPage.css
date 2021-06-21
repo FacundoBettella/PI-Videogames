@@ -1,0 +1,68 @@
+.appLandingPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    width: 100%;
+    height: 100vh;
+    background: url(../images//lorenzo-herrera-p0j-mE6mGo4-unsplash.jpg);
+    background-blend-mode: normal,color-burn;
+    background-position: center;
+    background-size: cover;
+    text-transform: capitalize;
+}
+
+/* linear-gradient(to bottom, #D5DEE7 0%, #E8EBF2 50%, #E2E7ED 100%), linear-gradient(to bottom, rgba(0,0,0,0.02) 50%, rgba(255,255,255,0.02) 61%, rgba(0,0,0,0.02) 73%), linear-gradient(33deg, rgba(255,255,255,0.20) 0%, rgba(0,0,0,0.20) 100%); */
+
+.titleContainer{
+    font-size: 45px;
+    letter-spacing: 2px;
+    margin-left: 3%;
+}
+
+.title{
+    color:#ffffff;
+    background-color: rgba(0, 0, 0, 0.918);
+}
+
+.enter {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: 25px;
+    justify-content: center;
+    display: flex;
+    font-size: xx-large;
+}
+
+.enterButton{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.856);
+    letter-spacing: 1px;
+    transition: all .2s linear;
+    border-radius: 6px;
+    padding: 1%;
+}
+
+.enterButton:hover{
+   color: black;
+   background-color: #ffffff;
+    box-shadow: 4px 4px 3px 2px rgba(0, 0, 0, 0.384);
+}
+
+footer {
+    background-color: #1A35A3;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    color: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 5px;
+    font-size: 20px;
+    box-shadow: 3px 3px 7px 2px rgba(0, 0, 0, 0.384);
+}

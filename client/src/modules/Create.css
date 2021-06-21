@@ -1,0 +1,97 @@
+.appCreate{
+    background: url('../images/nhu-nguyen-kr-jmsASg8M-unsplash.jpg');
+    background-blend-mode:lighten;
+    background-repeat:no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-position:center;
+    background-size: cover;
+   
+}
+
+.linkToHomeButton {
+    margin: 2%;
+}
+
+.createTitle {
+    margin-left: 2%;
+    font-size: 25px;
+    color: white;
+    text-transform: capitalize;
+}
+
+.formCard {
+    background: linear-gradient(to top, #f3e7e9e8 0%, #e3eeffe8 99%, #e3eeffea 100%);
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-left: 30%;
+    margin-right: 30%;
+    border: 1px solid black;
+    padding: 1%;
+    width: 45%;
+    border-radius: 6px;
+    box-shadow: 5px 8px 23px 2px rgba(0,0,0,0.43);
+    -webkit-box-shadow: 5px 8px 23px 2px rgba(0,0,0,0.43); 
+}
+
+.formInputs {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 80%;
+}
+
+.scoreInput, .releaseInput{
+    width: 28%;
+}
+
+.nameInput {
+    width: 50%;
+}
+
+.titleInput{
+    width: 100%;
+}
+
+.labels{
+    margin-bottom: 1%;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.checksInputs{
+    margin: 2%;
+    justify-content: center;
+    font-style: italic;
+}
+
+.submitButton{
+    text-decoration: none;
+    color: #692E8F;
+    font-weight: 600;
+    letter-spacing: 3px;
+    transition: all .2s linear;
+    border-radius: 6px;
+    padding: 1%;
+    background-color: aliceblue;
+    margin-top: 2%;
+    margin-left: 45%;
+    margin-right: 45%;
+}
+
+.submitButton:hover{
+    background-color: #692E8F;
+    color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.384);
+}
+
+.finalMessage{
+    margin-top: 2%;
+    margin-left: 25%;
+}

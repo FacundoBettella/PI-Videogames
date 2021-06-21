@@ -34,7 +34,8 @@ conn.sync({ force: true }).then(() => {
     try {
       const apiGenres = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
       const apiGenresResults = apiGenres.data.results.map(e => e.name)
-      apiGenresResults.map(e=>{
+      const SortapiGenresResults = apiGenresResults.sort();
+      SortapiGenresResults.map(e=>{
         Genre.findOrCreate({
           where: {
             name: e

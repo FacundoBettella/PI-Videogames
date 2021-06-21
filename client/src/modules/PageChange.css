@@ -1,0 +1,33 @@
+.paginate{
+    height: 20vh;
+}
+
+.pages{
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    list-style: none;
+}
+
+.page {
+    width: 5%;
+}
+
+.pagenumber {
+    justify-content: center;
+    margin: 1%;
+    width: 50%;
+    height: 80%;
+    border-radius: 6px;
+    transition: all .3s linear;
+    cursor: pointer;
+    font-size: medium;
+}
+
+.pagenumber:hover {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.384);
+    background-color: #429B9E;
+    color: aliceblue;
+}
