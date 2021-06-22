@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.2.1",
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.21.1",
+    "enzyme-adapter-react-15": "^1.4.3",
     "fetch": "^1.1.0",
     "node-sass": "^6.0.0",
     "react": "^17.0.1",
@@ -44,5 +45,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6"
   }
 }

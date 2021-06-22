@@ -35,6 +35,11 @@ function Detail( { videogameDetail } ) {
                                         {videogameDetail.data.name}
                                     </h3>
                                 </div>
+                                <div className='detailInfoScore'>
+                                    <h4 className='detailScore'>
+                                        Rating: {videogameDetail.data.rating}
+                                    </h4>
+                                </div>
                                 <div className='detailInfo'>
                                     <p id='descriptionDetail'>
                                         {stripHtml(videogameDetail.data.description)}

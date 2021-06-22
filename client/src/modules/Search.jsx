@@ -3,7 +3,7 @@ import './PageChange.css';
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getAll, getGenre, getVideoGame, getVideoGameDetail, sortAZ, sortScore, filterBy} from '../actions/index';
+import { getAll, getGenre, getVideoGame, getVideoGameDetail, sortAZ, sortScore, filterBy, previousFilterState } from '../actions/index';
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { MdLocationSearching } from 'react-icons/md';
 import PageChange from './PageChange.jsx';
@@ -69,8 +69,12 @@ function Search(props) {
 
     const handleFilter = (e) => {
         e.preventDefault();
-        console.log(e.target.value);
-        props.filterBy(e.target.value);
+        if(e.target.value === 'All'){
+           props.previousFilterState()
+        }
+        else{
+            props.filterBy(e.target.value);
+        }
     };
 
     return (
@@ -198,6 +202,7 @@ const mapStateToProps = (state) => {
         genres: state.genres,
         filtered: state.filtered,
         submit: state.submit,
+        videogamesBeforeFilter: state.videogamesBeforeFilter,
     };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -209,6 +214,7 @@ const mapDispatchToProps = (dispatch) => {
         sortAZ: payload => dispatch(sortAZ(payload)),
         sortScore: payload => dispatch(sortScore(payload)),
         filterBy: payload => dispatch(filterBy(payload)),
+        previousFilterState: payload => dispatch(previousFilterState(payload)),
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

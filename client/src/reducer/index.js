@@ -1,4 +1,6 @@
-import { GET_ALL100, GET_VIDEOGAMES, GET_VIDEOGAME_DETAIL, GET_GENRE, SORT_AZ, SORT_SCORE, FILTER_BY, SUBMIT } from '../actions/index';
+import { GET_ALL100, GET_VIDEOGAMES, GET_VIDEOGAME_DETAIL, 
+    GET_GENRE, SORT_AZ, SORT_SCORE, 
+    FILTER_BY, SUBMIT, PREVIOUS_STATE } from '../actions/index';
 // Axios es un paquete independiente de terceros que se puede instalar fácilmente en un proyecto React utilizando NPM.
 // A diferencia de Axios, fetch() está integrado en la mayoría de los navegadores modernos.
 
@@ -57,20 +59,23 @@ let initialState = {
     filtered: '',
     submit: '',
     videogameCreated: {},
+    videogamesBeforeFilter: [],
 }
 
 function reducer (state = initialState, action) {
 
     if(action.type === GET_ALL100){
         return {
-            videogamesLoaded: action.payload
+            videogamesLoaded: action.payload,
+            videogamesBeforeFilter: action.payload
         }
     }
 
     if(action.type === GET_VIDEOGAMES){
         return {
             ...state,
-            videogamesLoaded: action.payload
+            videogamesLoaded: action.payload,
+            videogamesBeforeFilter: action.payload
         }
     }
 
@@ -126,6 +131,14 @@ function reducer (state = initialState, action) {
             submit: 'The videogame has been created succesfully'
         }
     }
+
+    if(action.type === PREVIOUS_STATE) {
+        return {
+            ...state,
+            videogamesLoaded: state.videogamesBeforeFilter,
+        }
+    } 
+
     return state;
 }
 export default reducer;

@@ -6,7 +6,7 @@ export const SORT_AZ = 'SORT_AZ';
 export const SORT_SCORE = 'SORT_SCORE';
 export const FILTER_BY = 'FILTER_BY';
 export const SUBMIT = 'SUBMIT';
-
+export const PREVIOUS_STATE = 'PREVIOUS_STATE';
 
 export function getAll() {
     return function(dispatch) {
@@ -59,7 +59,7 @@ export function getGenre(){
             .then(response => response.json())
             .then(json =>{
                 dispatch({
-                    type: "GET_GENRE",
+                    type: 'GET_GENRE',
                     payload: json,
                 })
             })
@@ -105,6 +105,13 @@ export function submit (payload) {
         console.log(json)
     })
 }    
+
+export function previousFilterState (payload) {
+    return {
+        type: 'PREVIOUS_STATE',
+        payload: payload
+    }
+} 
 
 
 
