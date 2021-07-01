@@ -2,7 +2,8 @@
     <img src='https://static.wixstatic.com/media/85087f_0d84cbeaeb824fca8f7ff18d7c9eaafd~mv2.png/v1/fill/w_160,h_30,al_c,q_85,usm_0.66_1.00_0.01/Logo_completo_Color_1PNG.webp' </img>
 </p>
 
-# LABS => Individual Project - Videogames App!
+# HENRY LABS
+## Individual Project - Videogames App!
 
 <p align="right">
   <img height="200" src="./videogame.png" />
@@ -12,11 +13,13 @@
 
 Realizar una aplicación en la cual se puedan ver los distintos videojuegos disponibles junto con sus detalles más relevantes utilizando la api externa rawg y a partir de ella poder:
 
-Buscar videjuegos.
+Buscar videojuegos.
 Filtrarlos por genero.
+Acceder a sus detalles.
 Ordenarlos alfabeticamente y por su puntaje de rating.
 Crear nuevos videojuegos.
-Tecnologías Utilizadas:
+
+## Tecnologías Utilizadas:
 
     - JS
     - React
@@ -25,13 +28,6 @@ Tecnologías Utilizadas:
     - Express
     - Sequelize - Postgres
 
-
-### Únicos Endpoints/Flags que pueden utilizar de la Api rawg
-
-  - GET https://api.rawg.io/api/games
-  - GET https://api.rawg.io/api/games?search={game}
-  - GET https://api.rawg.io/api/genres
-  - GET https://api.rawg.io/api/games/{id}
 
 ### Requerimientos mínimos:
 
@@ -87,7 +83,7 @@ El modelo de la base de datos deberá tener las siguientes entidades (Aquellas p
   - ID
   - Nombre
 
-La relación entre ambas entidades debe ser de muchos a muchos ya que un videojuego puede pertenecer a varios géneros en simultaneo y, a su vez, un género puede contener múltiples videojuegos distintos. Un ejemplo sería el juego `Counter Strike` pertenece a los géneros Shooter y Action al mismo tiempo. Pero a su vez existen otros videojuegos considerados como Shooter o como Action.
+La relación entre ambas entidades debe ser de muchos a muchos ya que un videojuego puede pertenecer a varios géneros en simultaneo y, a su vez, un género puede contener múltiples videojuegos distintos. 
 
 __IMPORTANTE__: Pensar como modelar los IDs de los videojuegos en la base de datos. Existen distintas formas correctas de hacerlo pero tener en cuenta que cuando hagamos click en algun videojuego, este puede provenir de la API o de la Base de Datos por lo que cuando muestre su detalle no debería haber ambigüedad en cual se debería mostrar. Por ejemplo si en la API el videojuego `Age of Empires II: Age of Kings` tiene id = 1 y en nuestra base de datos creamos un nuevo videojuego `Age of Henry` con id = 1, ver la forma de diferenciarlos cuando querramos acceder al detalle del mismo.
 
