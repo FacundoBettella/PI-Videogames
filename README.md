@@ -17,12 +17,13 @@ Filtrarlos por genero.
 Ordenarlos alfabeticamente y por su puntaje de rating.
 Crear nuevos videojuegos.
 Tecnologías Utilizadas:
-    JS
-    React
-    Redux
-    Node
-    Express
-    Sequelize - Postgres
+
+    - JS
+    - React
+    - Redux
+    - Node
+    - Express
+    - Sequelize - Postgres
 
 
 ### Únicos Endpoints/Flags que pueden utilizar de la Api rawg
