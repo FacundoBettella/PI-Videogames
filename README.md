@@ -7,19 +7,11 @@
     <img src='./videogameApp1.gif' </img>
 </p>
 
-<p align="right">
-  <img height="200" src="./videogame.png" />
-</p>
-
 # Enunciado
 
 Realizar una aplicación en la cual se puedan ver los distintos videojuegos disponibles junto con sus detalles más relevantes utilizando la api externa rawg y a partir de ella poder:
 
-Buscar videojuegos.
-Filtrarlos por genero.
-Acceder a sus detalles.
-Ordenarlos alfabeticamente y por su puntaje de rating.
-Crear nuevos videojuegos.
+Buscar videojuegos, filtrarlos por genero, acceder a sus detalles, ordenarlos alfabeticamente y por su puntaje de rating y crear nuevos videojuegos.
 
 ## Tecnologías Utilizadas:
 
