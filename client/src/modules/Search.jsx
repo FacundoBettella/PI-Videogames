@@ -3,7 +3,7 @@ import './PageChange.css';
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getAll, getGenre, getVideoGame, getVideoGameDetail, sortAZ, sortScore, filterBy, previousFilterState } from '../actions/index';
+import { getDBGAMES, getAll, getGenre, getVideoGame, getVideoGameDetail, sortAZ, sortScore, filterBy, previousFilterState } from '../actions/index';
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { MdLocationSearching } from 'react-icons/md';
 import PageChange from './PageChange.jsx';
@@ -14,7 +14,7 @@ function Search(props) {
 
     useEffect(() => {
         props.getGenre();// eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    },[]);
 
     const [loading, setLoading] = useState(false);
 
@@ -36,7 +36,7 @@ function Search(props) {
     props.videogamesLoaded.length > 0 && props.videogamesLoaded.length < 16 ?
     currentPost = props.videogamesLoaded.slice(firstPostIndex, lastPostIndex) :
     currentPost = props.videogamesLoaded.slice(firstAllPostIndex, lastAllPostIndex);
-
+ 
     const paginate = (pageNum) => {
         setCurrentPage(pageNum);
     };
@@ -54,6 +54,15 @@ function Search(props) {
             setLoading(false);
         }, 6500); 
     };
+
+    const handleSubmitDBgames = (e) => {
+        setLoading(true);
+        e.preventDefault(e);
+        props.getDBGAMES();
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000); 
+    }
 
     const handleAZ = (e) =>{
         e.preventDefault();
@@ -96,27 +105,31 @@ function Search(props) {
                                     />
                                 <div className='divGoButtons'>
                                     <button type='submit' className="goButton" onClick={handleSubmit}> GO! </button>  
-                                    <button type='submit' className="goButton" onClick={handleSubmit}> Get 100 </button>    
+                                    <button type='submit' className="goButton" onClick={handleSubmit}> Get 100 </button> 
+                                    <button type='submit' className="goButton2" onClick={handleSubmitDBgames}> OUR GAMES! </button>   
                                 </div>
                         </form>
                     </div>
+                    <Link className="about" to="/about">
+                        About me
+                    </Link>
             </nav>
             {/*------------------------------------------------------------------------------------------------ */}
             <div className='selects'>
                 <select id='azOrder' onChange={(e) => handleAZ(e)}>
-                    <option value='AZ'>A-Z</option>
-                    <option value='ZA'>Z-A</option>
+                    <option value='AZ' id='A-Z'>A-Z</option>
+                    <option value='ZA' id='Z-A'>Z-A</option>
                 </select>
                 <select id='scoreOrder' onChange={(e) => handleScore(e)}>
-                    <option value='Max'>Max Score</option>
-                    <option value='Min'>Min Score</option>
+                    <option value='Max' id='Max Score'>Max Score</option>
+                    <option value='Min' id='Min Score'>Min Score</option>
                 </select>
-                <select id='azOrder' onChange={(e) => handleFilter(e)}>
-                        <option default id="all">All</option>
+                <select id='genders' onChange={(e) => handleFilter(e)}>
+                        <option id="all">All</option>
                     {
                         props.genres.length > 0 ?
                         props.genres.map((e) => (
-                            <option id={e} value={e}>
+                            <option key={e} value={e}>
                                 {e}    
                             </option>
                         )):
@@ -132,7 +145,7 @@ function Search(props) {
                                 props.videogamesLoaded.length > 0 ?
                                 props.videogamesLoaded.length < 16 ?
                                 currentPost.map((e) => (
-                                    <li className="cardLi" id={e.id}>
+                                    <li className="cardLi" key={e.id}>
                                         <div className="videogameCard" id={e.id}>
                                             <Link 
                                                 to={`/detail/${e.id}`}
@@ -151,7 +164,7 @@ function Search(props) {
                                     ))
                                     :
                                     currentPost.map((e) => (
-                                        <li className="allCardLi" id={e.id}>
+                                        <li className="allCardLi" key={e.id}>
                                             <div className="allVideogameCard" id={e.id}>
                                                 <Link 
                                                     to={`/detail/${e.id}`}
@@ -193,8 +206,8 @@ function Search(props) {
         </div>
     )
 };
-// Primero defino las props del componente.
-// Luego, conecto el store y las actions con el componente.
+// First, define the props in the component.
+// Then, connect the props and the actions to the component.
 const mapStateToProps = (state) => {
     return {
         videogamesLoaded: state.videogamesLoaded,
@@ -207,6 +220,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
+        getDBGAMES: () => dispatch(getDBGAMES()),
         getAll: () => dispatch(getAll()),
         getGenre: () => dispatch(getGenre()),
         getVideoGame: name => dispatch(getVideoGame(name)),

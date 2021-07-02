@@ -1,3 +1,4 @@
+export const GET_DBGAMES = 'GET_DBGAMES';
 export const GET_ALL100 = 'GET_ALL100';
 export const GET_VIDEOGAMES = 'GET_VIDEOGAMES';
 export const GET_VIDEOGAME_DETAIL = 'GET_VIDEOGAME_DETAIL';
@@ -7,6 +8,19 @@ export const SORT_SCORE = 'SORT_SCORE';
 export const FILTER_BY = 'FILTER_BY';
 export const SUBMIT = 'SUBMIT';
 export const PREVIOUS_STATE = 'PREVIOUS_STATE';
+
+export function getDBGAMES(){
+    return function(dispatch) {
+        return fetch('http://localhost:3001/api/dbvideogames')
+            .then(response => response.json())
+            .then(json => {
+                dispatch({
+                    type: 'GET_DBGAMES',
+                    payload: json
+                })
+            })
+    }
+}
 
 export function getAll() {
     return function(dispatch) {
@@ -24,7 +38,7 @@ export function getAll() {
 
 export function getVideoGame(name) {
     return function(dispatch) {
-        //Conexión front con back
+        // Conexión front con back
         // La API Fetch proporciona una interfaz JavaScript para acceder y manipular partes del canal HTTP, 
         // tales como peticiones y respuestas.
         return fetch(`http://localhost:3001/api/videogames?name=${name}`)

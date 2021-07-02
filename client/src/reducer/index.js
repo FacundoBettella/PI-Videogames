@@ -1,4 +1,4 @@
-import { GET_ALL100, GET_VIDEOGAMES, GET_VIDEOGAME_DETAIL, 
+import { GET_DBGAMES, GET_ALL100, GET_VIDEOGAMES, GET_VIDEOGAME_DETAIL, 
     GET_GENRE, SORT_AZ, SORT_SCORE, 
     FILTER_BY, SUBMIT, PREVIOUS_STATE } from '../actions/index';
 // Axios es un paquete independiente de terceros que se puede instalar fácilmente en un proyecto React utilizando NPM.
@@ -64,8 +64,17 @@ let initialState = {
 
 function reducer (state = initialState, action) {
 
+    if(action.type === GET_DBGAMES){
+        return {
+            ...state,
+            videogamesLoaded: action.payload,
+            videogamesBeforeFilter: action.payload
+        }
+    }
+
     if(action.type === GET_ALL100){
         return {
+            ...state,
             videogamesLoaded: action.payload,
             videogamesBeforeFilter: action.payload
         }

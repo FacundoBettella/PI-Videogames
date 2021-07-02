@@ -60,7 +60,7 @@ function Create( props ) {
         else{
             setInput({
                 ...input,
-                platforms: input.platforms.filter(e => e !== target)
+                platforms: input.platforms.filter((e) => e !== target)
             })
         }
     };
@@ -151,12 +151,13 @@ function Create( props ) {
                             <p className='platformsInput'>
                                 {
                                     PLATFORM.sort().map((e)=> (
-                                        <label className='checksInputs' id={e}>
+                                        <label className='checksInputs' key={e}>
                                             <input
                                                 type="checkbox"
                                                 name="platforms"
                                                 value={e}
                                                 onClick={(e)=>handlePlatformsCheck(e)}
+                                                key={e}
                                                 />
                                             {e}    
                                         </label>
@@ -169,12 +170,13 @@ function Create( props ) {
                             <p>
                                 {
                                     props.genres.length > 0 && props.genres.map((e) => (
-                                        <label className='checksInputs' id={e.id}>
+                                        <label className='checksInputs' key={e}>
                                             <input
                                                 type="checkbox"
                                                 name= "genres"
                                                 value={e}
                                                 onClick={(e) =>handleCheck(e)}
+                                                key={e}
                                             />
                                             {e}
                                         </label>

@@ -26,8 +26,8 @@ class ModelCrud {
                 id: id
             }
         })
-            .then(res.sendStatus(200))
-            .catch(err => next(err));
+        .then(res.sendStatus(200))
+        .catch(err => next(err));
     };
 
     post = (req, res, next) => {

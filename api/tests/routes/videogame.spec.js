@@ -80,7 +80,7 @@ describe('Get Query Route', () => {
 
   it('responds with 404 when the object is not an object', async () => 
     agent.post('/api/create')
-    .send({Object: []}).expect(404)).timeout(4000);      
+    .send({Object: []}).expect(404)) //.timeout(4000);      
 })
 
 

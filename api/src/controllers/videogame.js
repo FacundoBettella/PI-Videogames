@@ -9,8 +9,8 @@ const { Op } = require('sequelize');
 const { v4: uuidv4 } = require('uuid'); 
  
 class VideogameModel extends ModelCrud {
-    constructor(model){
-        super(model);
+    constructor(model) {
+        super(model); //Calls father constructor.
     }
     // Get all by query name
     getAll = async (req, res, next) => {
@@ -31,7 +31,7 @@ class VideogameModel extends ModelCrud {
                         model: Genre
                     }] 
                 });
-                console.log(videogameBD.length);
+                console.log("videogameBD.length: ", videogameBD.length);
                 // Ahora en la Api..
                 let videogameAPI = axios.get(`https://api.rawg.io/api/games?search=${queryName}&key=${API_KEY}`);
                 Promise.all([videogameBD, videogameAPI])
@@ -70,7 +70,7 @@ class VideogameModel extends ModelCrud {
 
                         }   
                     })
-                    apiRandomGames = apiRandomGames.concat(games); //Se concatena con lo anterior.
+                    apiRandomGames = apiRandomGames.concat(games); //Se crea un nuevo array y concatena lo anterior.
                 }
                 res.send(apiRandomGames);
             } catch (error) {
@@ -85,7 +85,7 @@ class VideogameModel extends ModelCrud {
         const id = req.params.idVideogame;
         let APIvideogameResult;
         if(id) {
-            // DB videogame Detail (modelado listo)
+            // DB videogame Detail 
             if(id.length > 9) {
                 let DBvideogame = await this.model.findOne({
                     attributes: [ 'image', 'name', 'description', 'released', 'rating', 'platforms'],
@@ -108,7 +108,7 @@ class VideogameModel extends ModelCrud {
                     })
                 }
             }
-            // Api videogame Detail (modelado por hacer)
+            // Api videogame Detail 
             else {
                 let APIvideogame = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
                 if(APIvideogame != undefined) {
@@ -140,6 +140,24 @@ class VideogameModel extends ModelCrud {
             })  
         }    
     };
+
+    // Get games created
+    getDBgames = async (req, res, next) => {
+        let videogamesBD =  await this.model.findAll({
+            attributes: ['id','name', 'image', 'rating'],
+            include: [{
+                model: Genre
+            }] 
+        });
+        if(videogamesBD.length > 0 ){
+            res.send(videogamesBD);  
+        }
+        else{
+            res.status(404).json({
+                message: 'Not database games',
+            })    
+        }
+    }
     
     // Post one by body 
     post = async (req, res, next) => {

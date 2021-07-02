@@ -6,12 +6,10 @@ import { IoMdBackspace } from 'react-icons/io';
 
 function Detail( { videogameDetail } ) {
 
+    // Clean html syntax
     const stripHtml = (html) => {
-        // Crea un nuevo elemento div
         let temporalDivElement = document.createElement("div");
-        // Establecer el contenido HTML con el dado
         temporalDivElement.innerHTML = html;
-        // Recuperar la propiedad de texto del elemento (compatibilidad con varios navegadores)
         return temporalDivElement.textContent || temporalDivElement.innerText || "";
     }
 
@@ -49,7 +47,7 @@ function Detail( { videogameDetail } ) {
                                     <ul className='mapsDetailP'>
                                         {   
                                             videogameDetail.data.platforms.map((e)=>(
-                                                <li className="platform">{e}</li>
+                                                <li key={e} className="platform">{e}</li>
                                                 ))   
                                             }
                                     </ul>
@@ -58,7 +56,7 @@ function Detail( { videogameDetail } ) {
                                     <ul className='mapsDetailG'>
                                         {   
                                             videogameDetail.data.genres.map(e => (
-                                                <li  className="genre" id={e}>
+                                                <li  className="genre" key={e}>
                                                     {
                                                         e.name? e.name: e
                                                     }
@@ -69,8 +67,10 @@ function Detail( { videogameDetail } ) {
                                 </div> 
                             </div>  
                             :
-                            <div className='pacLoading'>
-                                <PacmanLoader color={"#429B9E"} loading={true}  size={60} />    
+                            <div className='secondRendering'>
+                                <div className='pacLoading'>
+                                    <PacmanLoader color={"#429B9E"} loading={true}  size={60} />    
+                                </div>
                             </div>
                         }
                 </div>

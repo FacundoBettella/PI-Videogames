@@ -7,6 +7,7 @@ import  LandingPage from './modules/LandingPage';
 import  Search  from './modules/Search';
 import  Detail from './modules/Detail';
 import  Create from './modules/Create';
+import About from './modules/About';
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
         <Route path='/home' component={Search} />
         <Route path='/detail/:id' component={Detail} />
         <Route path='/create' component={Create} /> 
+        <Route path='/about' component={About} />
     </React.Fragment>
   );
 }
 export default App;
-//React.Fragment te permiten agrupar una lista de hijos sin agregar nodos extra al DOM.
+

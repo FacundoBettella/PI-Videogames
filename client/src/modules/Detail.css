@@ -6,6 +6,15 @@
     background-size: cover; 
 }
 
+.secondRendering{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: linear-gradient(to right, #292929 0%, black 100%);
+    background-size: cover; 
+}
+
 .linkToHome {
     position: fixed;
     margin: 2%;
@@ -120,6 +129,7 @@
 .pacLoading{
     margin: 15%;
     margin-left: 100%;
+    margin-bottom: 35%;
     position: fixed;
 }
 

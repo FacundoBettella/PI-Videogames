@@ -10,13 +10,11 @@ import { Provider } from 'react-redux';
 import store from './store/index'; 
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={store}>
       <Router>
         <App />
       </Router>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
   document.getElementById('root')
 );
 
@@ -25,5 +23,3 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-
-//BrowserRouter (Router): Este inyecta propiedades a nuestro componente para poder acceder al historial de navegación, realizar redirecciones

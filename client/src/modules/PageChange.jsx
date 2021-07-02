@@ -2,7 +2,7 @@ import './PageChange.css';
 import React from 'react';
 
 function PageChange ({ postPage, allPostPage, paginate, totalPosts }) {
-    let pageNumber = []; //Q de paginas
+    let pageNumber = []; 
     
     let postsPerPage =  totalPosts > 0 && totalPosts < 16 ? postPage : allPostPage; 
     
