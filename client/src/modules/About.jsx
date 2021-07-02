@@ -6,7 +6,7 @@ export default function About() {
                 <div className='container'>
                     <div className="titleContainer">
                         <h3 className="title">
-                        Hi there! My name is Facundo Bettella Iunnissi and i'am a full stack development and Pshicologyst.
+                        Hi there! My name is Facundo Bettella Iunnissi and i'am a full stack development and  Psychologist.
                         If you want to know more about me, send me a message
                         </h3>
                     </div>
