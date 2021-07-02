@@ -1,9 +1,11 @@
-<p align='left'>
-    <img src='./videogameApp1.gif' </img>
-</p>
+
 
 # HENRY LABS
 ## Individual Project - Videogames App!
+
+<p align='left'>
+    <img src='./videogameApp1.gif' </img>
+</p>
 
 <p align="right">
   <img height="200" src="./videogame.png" />
