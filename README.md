@@ -11,7 +11,7 @@
 
 Realizar una aplicación en la cual se puedan ver los distintos videojuegos disponibles junto con sus detalles más relevantes utilizando la api externa rawg y a partir de ella poder:
 
-Buscar videojuegos, filtrarlos por genero, acceder a sus detalles, ordenarlos alfabeticamente y por su puntaje de rating y crear nuevos videojuegos.
+Buscar videojuegos, filtrarlos por genero, acceder a sus detalles, ordenarlos alfabeticamente y por su puntaje de rating, además crear nuevos videojuegos en una base de datos local.
 
 ## Tecnologías Utilizadas:
 
