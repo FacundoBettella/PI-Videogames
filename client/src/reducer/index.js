@@ -12,7 +12,6 @@ import { GET_DBGAMES, GET_ALL100, GET_VIDEOGAMES, GET_VIDEOGAME_DETAIL,
 //     {name:"Mortal Kombat", rating: 7, genre:[{name:"fight"}]}
 // ]
 
-
 function orderAZ (arr, orderKey/*name*/) {
     return arr.sort(function(a, b) {
         if(a[orderKey] < b[orderKey]){
@@ -103,7 +102,6 @@ function reducer (state = initialState, action) {
     }
 
     if(action.type === SORT_AZ) {
-        console.log('Reducer Sort_AZ')
         let sortVideogames = action.payload === 'AZ'?
         orderAZ(state.videogamesLoaded, 'name'):
         orderZA(state.videogamesLoaded, 'name');
@@ -114,12 +112,12 @@ function reducer (state = initialState, action) {
     }
 
     if(action.type === SORT_SCORE) {
-        let sortVideogames = action.payload === 'Max'?
+        let ratingSortVideogames = action.payload === 'Max'?
         orderZA(state.videogamesLoaded, 'rating'):
         orderAZ(state.videogamesLoaded, 'rating');
         return {
             ...state,
-            videogamesLoaded: sortVideogames,
+            videogamesLoaded: ratingSortVideogames,
         }
     }
 

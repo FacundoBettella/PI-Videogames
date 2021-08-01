@@ -67,7 +67,7 @@ class VideogameModel extends ModelCrud {
                             name: e.name,
                             image: e.background_image,
                             genres: e.genres,
-
+                            rating: e.rating,
                         }   
                     })
                     apiRandomGames = apiRandomGames.concat(games); //Se crea un nuevo array y concatena lo anterior.

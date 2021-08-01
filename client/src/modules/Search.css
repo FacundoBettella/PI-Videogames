@@ -4,29 +4,27 @@
     justify-content:center;
     width: 100%;
     height: auto;
+    position: relative;
     /* background: linear-gradient(to bottom, #D5DEE7 0%, #E8EBF2 50%, #E2E7ED 100%), linear-gradient(to bottom, rgba(0,0,0,0.02) 50%, rgba(255,255,255,0.02) 61%, rgba(0,0,0,0.02) 73%), linear-gradient(33deg, rgba(255,255,255,0.20) 0%, rgba(0,0,0,0.20) 100%); */
 }
 
 .searchNav {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 137px;
+    justify-content: space-evenly;
+    width: 99vw;
+    height: 24vh;
     display: flex;
     align-items: center;
     padding-top: 3%;
-    font-size:25px; 
+    font-size:18px; 
     background-image: linear-gradient(to right, #292929 0%, black 100%);
     color: #429B9E;
 }
 
-nav{
-    justify-content: space-around;
-}
 
 .about{
-    margin-left: 7%;
-    margin-right: 3%;
+    margin-left: 25%;
+    margin-right: 10%;
     margin-bottom: 3%;
     text-decoration: none;
     font-weight: 700;
@@ -37,20 +35,19 @@ nav{
 
 .about:hover{
     color: white;
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid white;
 }
 
 .createLink {
+    margin-left: 0%;
     padding: 1%;
     margin-bottom: 3%;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-decoration: none;
     color: #7e44a5;
     font-weight: 700;
     transition: all .3s linear;
     border-radius: 6px;
-    margin-left: 2%;
-    margin-right: 2%;
     text-transform: capitalize;
 }
 
@@ -65,7 +62,7 @@ nav{
 
 .searchForm{
     display: grid;
-    width: 200%;
+    width: 215%;
     align-items: center;
     justify-items: center;
 }
@@ -75,11 +72,12 @@ nav{
     justify-content: center;
     display: flex;
     margin-top: 3%;
+    margin-bottom: 2%;
 }
 
 .searchInput {
-    width: 100%;
-    height:115%;
+    width: 80%;
+    height:100%;
     margin-bottom: 3%;
     border-radius: 2px;
 }
@@ -248,14 +246,15 @@ nav{
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 10%;
+    height: 8vh;
     color: white;
     border-radius: 6px; 
     display: flex;
     align-items: center;
     justify-content: center;
     letter-spacing: 5px;
-    font-size: 15px
+    font-size: 15px;
+    box-shadow: 2px 2px 20px 4px rgba(0, 0, 0, 0.384);
 }
 
 

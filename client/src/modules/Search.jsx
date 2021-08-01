@@ -17,8 +17,9 @@ function Search(props) {
     },[]);
 
     const [loading, setLoading] = useState(false);
-
+    
     // --------------------------------------Paginado------------------------------------ 
+    
     let currentPost;
     
     const [currentPage, setCurrentPage] = useState(1);
@@ -66,14 +67,14 @@ function Search(props) {
 
     const handleAZ = (e) =>{
         e.preventDefault();
-        console.log(e.target.value)
         props.sortAZ(e.target.value);
-        setCurrentPage(1);
+        setCurrentPage(currentPage);
     };
 
     const handleScore = (e) => {
         e.preventDefault();
         props.sortScore(e.target.value);
+        setCurrentPage(currentPage);
     };
 
     const handleFilter = (e) => {
@@ -88,84 +89,65 @@ function Search(props) {
 
     return (
         <div className='appSearch'>
-            <nav className='searchNav'>
-                <Link to='/create' className='createLink'>Tell us about your video game</Link>
+                <nav className='searchNav'>
+                    <Link to='/create' className='createLink'>Tell us about your video game</Link>
                     <div className='searchConteiner'>
                         <form className='searchForm'>
                             <label className='searchInputLabel'>
-                                <h3>
-                                    <MdLocationSearching />
-                                </h3>
+                                <h2>
+                                        <MdLocationSearching />
+                                </h2>
                             </label>
                                 <input
-                                    className='searchInput'
-                                    type='text'
-                                    ref={nameRef}
-                                    placeholder="  Find your videogame"
-                                    />
+                                        className='searchInput'
+                                        type='text'
+                                        ref={nameRef}
+                                        placeholder="  Find your videogame"
+                                        />
                                 <div className='divGoButtons'>
-                                    <button type='submit' className="goButton" onClick={handleSubmit}> GO! </button>  
-                                    <button type='submit' className="goButton" onClick={handleSubmit}> Get 100 </button> 
-                                    <button type='submit' className="goButton2" onClick={handleSubmitDBgames}> OUR GAMES! </button>   
+                                        <button type='submit' className="goButton" onClick={handleSubmit}> GO! </button>  
+                                        <button type='submit' className="goButton" onClick={handleSubmit}> Get 100 </button> 
+                                        <button type='submit' className="goButton2" onClick={handleSubmitDBgames}> OUR GAMES! </button>   
                                 </div>
                         </form>
                     </div>
                     <Link className="about" to="/about">
-                        About me
+                            ABOUT
                     </Link>
-            </nav>
-            {/*------------------------------------------------------------------------------------------------ */}
-            <div className='selects'>
-                <select id='azOrder' onChange={(e) => handleAZ(e)}>
-                    <option value='AZ' id='A-Z'>A-Z</option>
-                    <option value='ZA' id='Z-A'>Z-A</option>
-                </select>
-                <select id='scoreOrder' onChange={(e) => handleScore(e)}>
-                    <option value='Max' id='Max Score'>Max Score</option>
-                    <option value='Min' id='Min Score'>Min Score</option>
-                </select>
-                <select id='genders' onChange={(e) => handleFilter(e)}>
-                        <option id="all">All</option>
-                    {
-                        props.genres.length > 0 ?
-                        props.genres.map((e) => (
-                            <option key={e} value={e}>
-                                {e}    
-                            </option>
-                        )):
-                        <option id="notGenre">Not genres</option> 
-                    }
+                </nav>
+                {/*------------------------------------------------------------------------------------------------ */}
+                <div className='selects'>
+                    <select id='azOrder' onChange={(e) => handleAZ(e)}>
+                        <option value='AZ' id='A-Z'>A-Z</option>
+                        <option value='ZA' id='Z-A'>Z-A</option>
+                    </select>
+                    <select id='scoreOrder' onChange={(e) => handleScore(e)}>
+                        <option value='Max' id='Max Score'>Max Score</option>
+                        <option value='Min' id='Min Score'>Min Score</option>
+                    </select>
+                    <select id='genders' onChange={(e) => handleFilter(e)}>
+                            <option id="all">All</option>
+                        {
+                            props.genres.length > 0 ?
+                            props.genres.map((e) => (
+                                <option key={e} value={e}>
+                                    {e}    
+                                </option>
+                            )):
+                            <option id="notGenre">Not genres</option> 
+                        }
 
-                </select>    
-            </div>
-            <div className='card&Paginate'>
-                <div className='videogameFound'>
-                        <ul className={changeUL}>
-                            {   
-                                props.videogamesLoaded.length > 0 ?
-                                props.videogamesLoaded.length < 16 ?
-                                currentPost.map((e) => (
-                                    <li className="cardLi" key={e.id}>
-                                        <div className="videogameCard" id={e.id}>
-                                            <Link 
-                                                to={`/detail/${e.id}`}
-                                                className="linkToDetail"
-                                                onClick={()=> props.getVideoGameDetail(e.id)}  
-                                                >
-                                                {e.name}
-                                            </Link>
-                                                {
-                                                    e.image?
-                                                    <img className="videogameImage" src={e.image} alt='https://wallpapercave.com/wp/wp7072099.jpg' /> :
-                                                <img src='https://wallpapercave.com/wp/wp7072099.jpg' alt="Img not found" className="videogameImage" />
-                                                }
-                                        </div>
-                                    </li>
-                                    ))
-                                    :
+                    </select>    
+                </div>
+                <div className='card&Paginate'>
+                    <div className='videogameFound'>
+                            <ul className={changeUL}>
+                                {   
+                                    props.videogamesLoaded.length > 0 ?
+                                    props.videogamesLoaded.length < 16 ?
                                     currentPost.map((e) => (
-                                        <li className="allCardLi" key={e.id}>
-                                            <div className="allVideogameCard" id={e.id}>
+                                        <li className="cardLi" key={e.id}>
+                                            <div className="videogameCard" id={e.id}>
                                                 <Link 
                                                     to={`/detail/${e.id}`}
                                                     className="linkToDetail"
@@ -175,29 +157,49 @@ function Search(props) {
                                                 </Link>
                                                     {
                                                         e.image?
-                                                        <img className="allVideogameImage" src={e.image} alt='https://wallpapercave.com/wp/wp7072099.jpg' /> :
-                                                    <img src='https://wallpapercave.com/wp/wp7072099.jpg' alt="Img not found" className="allVideogameImage" />
+                                                        <img className="videogameImage" src={e.image} alt='https://wallpapercave.com/wp/wp7072099.jpg' /> :
+                                                        <img src='https://wallpapercave.com/wp/wp7072099.jpg' alt="Img not found" className="videogameImage" />
                                                     }
                                             </div>
                                         </li>
                                         ))
-                                        :                              
-                                <PacmanLoader className='pacman' color={"#429B9E"} loading={loading} size={50} />
-                            }
-                    </ul>
+                                        :
+                                        currentPost.map((e) => (
+                                            <li className="allCardLi" key={e.id}>
+                                                <div className="allVideogameCard" id={e.id}>
+                                                    <Link 
+                                                        to={`/detail/${e.id}`}
+                                                        className="linkToDetail"
+                                                        onClick={()=> props.getVideoGameDetail(e.id)}  
+                                                        >
+                                                        {e.name}
+                                                    </Link>
+                                                        {
+                                                            e.image?
+                                                            <img className="allVideogameImage" src={e.image} alt='https://wallpapercave.com/wp/wp7072099.jpg' /> :
+                                                            <img src='https://wallpapercave.com/wp/wp7072099.jpg' alt="Img not found" className="allVideogameImage" />
+                                                        }
+                                                </div>
+                                            </li>
+                                            ))
+                                            :                              
+                                            <PacmanLoader className='pacman' color={"#429B9E"} loading={loading} size={50} />
+                                        }
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            {
-                currentPost ?
-                <PageChange
+                {
+                    currentPost ?
+                    <PageChange
                     postPage = {postPage}
                     allPostPage = {allPostPage}
                     totalPosts = {props.videogamesLoaded.length}
                     paginate = {paginate}
-                /> 
-                :
-                null
-            }
+                    /> 
+                    :
+                    null
+                }
+        
             <footer id="footer">
                 <h3>
                     Videogame Search APP - External and local requests / 2021

@@ -28,7 +28,7 @@ const { Genre } = require('./src/db')
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   server.listen(3001, async () => {
-    console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
+    console.log(`%s listening at 3001`); // eslint-disable-line no-console
 
     // Junto con el montaje del servidor cargamos generos en la base de datos.
     try {

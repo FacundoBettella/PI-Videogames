@@ -88,7 +88,7 @@ function Create( props ) {
                 <nav className='toSearchButton'>
                     <div className='linkToHomeButton'>
                         <Link to='/home'>
-                            <IoMdBackspace size={35} color={'#7e44a5'}/>
+                            <IoMdBackspace size={25} color={'#7e44a5'}/>
                         </Link>
                     </div>
                 </nav>
