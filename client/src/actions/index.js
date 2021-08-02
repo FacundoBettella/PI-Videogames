@@ -11,7 +11,6 @@ export const SUBMIT = 'SUBMIT';
 export const PREVIOUS_STATE = 'PREVIOUS_STATE';
 
 dotenv.config();
-
 let fetchDefaults = require("fetch-defaults")
 let apiFetch = fetchDefaults(  fetch, 'http://localhost:3001' || process.env.REACT_APP_API );
 
