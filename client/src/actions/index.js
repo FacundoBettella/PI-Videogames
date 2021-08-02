@@ -12,7 +12,7 @@ export const PREVIOUS_STATE = 'PREVIOUS_STATE';
 
 dotenv.config();
 let fetchDefaults = require("fetch-defaults")
-let apiFetch = fetchDefaults(  fetch, 'http://localhost:3001' || process.env.REACT_APP_API );
+let apiFetch = fetchDefaults( fetch, process.env.REACT_APP_API );
 
 export function getDBGAMES(){
     return function(dispatch) {
