@@ -193,7 +193,7 @@ function Create( props ) {
                         <input type='submit' value='Submit' className='submitButton' onClick={handleSubmit}/>
                     </form>
                 </div>
-                <footer id='Detailfooter'>
+                <footer id='createFooter'>
                     <div className='platformIcons'>
                         <SiAtari size={22}/>   <SiNintendo size={22}/>   <SiNintendoswitch size={22}/>   <SiSega size={22}/>   <SiPlaystation size={22}/>   <SiXbox size={22}/>   <GrPersonalComputer size={22}/>                                    
                     </div>              

@@ -15,7 +15,7 @@ function Search(props) {
     useEffect(() => {
         props.getGenre();// eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
-
+    
     const [loading, setLoading] = useState(false);
     
     // --------------------------------------Paginado------------------------------------ 
@@ -45,7 +45,8 @@ function Search(props) {
     let changeUL = props.videogamesLoaded.length > 0 && props.videogamesLoaded.length < 16 ? 'ul' : 'AllUl'
 
     //-------------------------------------------Functions--------------------------------
-    
+
+  
     const handleSubmit = (e) => {
         setLoading(true);
         e.preventDefault(e);
@@ -65,16 +66,26 @@ function Search(props) {
         }, 2000); 
     }
 
-    const handleAZ = (e) =>{
+    const handleAZ = (e) => {
         e.preventDefault();
         props.sortAZ(e.target.value);
-        setCurrentPage(currentPage);
+        if (currentPage > 1){
+            setCurrentPage(1);
+        }
+        else {
+            setCurrentPage(currentPage + 1);
+        }
     };
 
     const handleScore = (e) => {
         e.preventDefault();
         props.sortScore(e.target.value);
-        setCurrentPage(currentPage);
+        if (currentPage > 1){
+            setCurrentPage(1);
+        }
+        else {
+            setCurrentPage(currentPage + 1);
+        }
     };
 
     const handleFilter = (e) => {
@@ -183,7 +194,7 @@ function Search(props) {
                                             </li>
                                             ))
                                             :                              
-                                            <PacmanLoader className='pacman' color={"#429B9E"} loading={loading} size={50} />
+                                            <PacmanLoader className='pacman' color={"#429B9E"} loading={loading} size={35} />
                                         }
                         </ul>
                     </div>
@@ -198,13 +209,7 @@ function Search(props) {
                     /> 
                     :
                     null
-                }
-        
-            <footer id="footer">
-                <h3>
-                    Videogame Search APP - External and local requests / 2021
-                </h3>
-            </footer>    
+                }   
         </div>
     )
 };

@@ -10,32 +10,31 @@
 
 .searchNav {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     width: 99vw;
-    height: 24vh;
+    height: 25vh;
     display: flex;
     align-items: center;
     padding-top: 3%;
-    font-size:18px; 
+    font-size:15px; 
     background-image: linear-gradient(to right, #292929 0%, black 100%);
     color: #429B9E;
 }
 
 
 .about{
-    margin-left: 25%;
+    margin-left: 28%;
     margin-right: 10%;
     margin-bottom: 3%;
     text-decoration: none;
     font-weight: 700;
     text-transform: capitalize;
-    color: #1A35A3;
+    /* color: #1A35A3; */
     transition: all .2s linear;
 }
 
 .about:hover{
-    color: white;
-    border-bottom: 2px solid white;
+    color: aliceblue;
 }
 
 .createLink {

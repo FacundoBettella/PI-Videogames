@@ -14,7 +14,7 @@ export default function About() {
                     </div>
                     <div className="titleAboutContainer">
                         <p className="aboutTitle">
-                        Hi there! My name is Facundo Bettella Iunnissi and i'am a full stack development and Psychologist.
+                        My name is Facundo Bettella Iunnissi and i'am a full stack development and Psychologist.
                         I am very motivated to constantly improve what I already know and to incorporate new tools. 
                         </p>
                         <br/>
