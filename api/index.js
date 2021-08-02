@@ -20,14 +20,13 @@
 require('dotenv').config();
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-const PORT = 3001;
 const { API_KEY } = process.env
 const axios = require('axios');
 const { Genre } = require('./src/db')
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, async () => {
+  server.listen(process.env.PORT, async () => {
     console.log(`%s listening at 3001`); // eslint-disable-line no-console
 
     // Junto con el montaje del servidor cargamos generos en la base de datos.

@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 export const GET_DBGAMES = 'GET_DBGAMES';
 export const GET_ALL100 = 'GET_ALL100';
 export const GET_VIDEOGAMES = 'GET_VIDEOGAMES';
@@ -9,9 +10,14 @@ export const FILTER_BY = 'FILTER_BY';
 export const SUBMIT = 'SUBMIT';
 export const PREVIOUS_STATE = 'PREVIOUS_STATE';
 
+dotenv.config();
+
+let fetchDefaults = require("fetch-defaults")
+let apiFetch = fetchDefaults(  fetch, 'http://localhost:3001' || process.env.REACT_APP_API );
+
 export function getDBGAMES(){
     return function(dispatch) {
-        return fetch('http://localhost:3001/api/dbvideogames')
+        return apiFetch('/api/dbvideogames')
             .then(response => response.json())
             .then(json => {
                 dispatch({
@@ -24,7 +30,7 @@ export function getDBGAMES(){
 
 export function getAll() {
     return function(dispatch) {
-        return fetch(`http://localhost:3001/api/videogames`)
+        return apiFetch(`/api/videogames`)
         .then(response => response.json())
         .then(json=>{
             dispatch({
@@ -41,7 +47,7 @@ export function getVideoGame(name) {
         // Conexión front con back
         // La API Fetch proporciona una interfaz JavaScript para acceder y manipular partes del canal HTTP, 
         // tales como peticiones y respuestas.
-        return fetch(`http://localhost:3001/api/videogames?name=${name}`)
+        return apiFetch(`/api/videogames?name=${name}`)
             .then(response => response.json())
             .then(json => {
                 dispatch({
@@ -55,7 +61,7 @@ export function getVideoGame(name) {
 
 export function getVideoGameDetail(id) {
     return function(dispatch) {
-        return fetch(`http://localhost:3001/api/detail/${id}`)
+        return apiFetch(`/api/detail/${id}`)
         .then(response => response.json())
         .then(json => {
             dispatch({
@@ -69,7 +75,7 @@ export function getVideoGameDetail(id) {
 
 export function getGenre(){
     return function(dispatch) {
-        return fetch(`http://localhost:3001/api/genres`)
+        return apiFetch(`/api/genres`)
             .then(response => response.json())
             .then(json =>{
                 dispatch({
@@ -103,7 +109,7 @@ export function filterBy (payload) {
 
 export function submit (payload) {
     return (dispatch) =>
-    fetch('http://localhost:3001/api/create', {
+    apiFetch('/api/create', {
        method: 'POST',
         headers: {
            accept: 'application/json', 'content-type': 'application/json'
