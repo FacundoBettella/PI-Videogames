@@ -19,10 +19,10 @@
     "ioredis": "^4.19.2",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.12",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
-    "uuid": "^8.3.2",
-    "nodemon": "^2.0.6"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "supertest-session": "^4.1.0",
