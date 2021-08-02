@@ -17,7 +17,7 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-require('dotenv').config();
+// require('dotenv').config();
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const { API_KEY } = process.env
@@ -25,7 +25,7 @@ const axios = require('axios');
 const { Genre } = require('./src/db')
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   server.listen(process.env.PORT, async () => {
     console.log(`%s listening at 3001`); // eslint-disable-line no-console
 
